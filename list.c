@@ -45,3 +45,32 @@ int getNth(struct Node* head, int index){
   return head->data;
 }
 
+void deleteList(struct Node** headPtr){
+  struct Node* current = *headPtr;
+  while(*headPtr){
+    current = *headPtr;
+    *headPtr=(*headPtr)->next;
+    free(current);
+  }
+}
+
+int Pop(struct Node** headPtr){
+  assert(headPtr);
+  assert(*headPtr);
+  struct Node* current = *headPtr;
+  int data = (*headPtr)->data;
+  *headPtr = (*headPtr)->next;
+  free(current);
+  return data;
+}
+
+void InsertNth(struct Node** headPtr, int index, int data){
+  assert(index < length(headPtr));
+  struct Node* newNode = malloc(sizeof(struct Node));
+  newNode->data=data;
+
+  struct Node** current = headPtr;
+  while(*current){
+    current = &((*current)->next);
+  }
+}
