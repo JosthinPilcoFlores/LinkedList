@@ -1,6 +1,12 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "list.h"
+void push(struct Node** headPtr, int data){
+  struct Node* newNode = malloc(sizeof(struct Node));
+  newNode->data = data;
+  newNode->next = *headPtr;
+  *headPtr = newNode;
+}
 int length(struct Node* head){
   int count = 0;
   while(head){

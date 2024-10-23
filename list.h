@@ -4,6 +4,7 @@ struct Node {
   int data;
   struct Node* next;
 };
+void push(struct Node** headPtr,int data);
 int length(struct Node* head);
 struct Node* buildOneTwoThree();
 int count(struct Node* list, int n);
