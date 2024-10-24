@@ -70,7 +70,7 @@ int Pop(struct Node** headPtr){
   return data;
 }
 
-void InsertNth(struct Node** headPtr, int index, int data){
+/*void InsertNth(struct Node** headPtr, int index, int data){
   assert(index < length(headPtr));
   struct Node* newNode = malloc(sizeof(struct Node));
   newNode->data=data;
@@ -79,4 +79,27 @@ void InsertNth(struct Node** headPtr, int index, int data){
   while(*current){
     current = &((*current)->next);
   }
+}*/
+
+void InsertNth(struct Node** headPtr, int index, int data){
+  if(index == 0) push(headPtr, data);
+  else{
+    struct Node* current = *headRef;
+    int i;
+
+    for(i=0; i<index-1; i++){
+      assert(current != NULL);
+      current = current->next;
+    }
+
+    assert(current != NULL);
+
+    push(&(current->next), data);
+  }
+}
+
+void SortedInsert(struct Node** headPtr, struct Node* newNode){
+  struct Node* nuevoNodo = malloc(sizeof(struct Node));
+  *nuevoNodo->data = *newNode->data;
+  *nuevoNodo->next = *headPtr;
 }
